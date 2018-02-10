@@ -16,6 +16,11 @@ For computer player, you can simply use the strategy of randomly picking any ava
 # Input - 
 
 **start_game(game_type, blocked_cells, player_inputs)**
-start_game('HUMAN-HUMAN', [(4,1), (5,2), (4,2), (4,4), (5,5)], [('A',1), ('B', 5), ('A', 4), ('B', 3), ('A', 2), ('B', 3), ('A', 3)])
 
+```
+start_game('HUMAN-HUMAN', [(4,1), (5,2), (4,2), (4,4), (5,5)], [('A',1), ('B', 5), ('A', 4), ('B', 3), ('A', 2), ('B', 3), ('A', 3)])
+```
+
+```
 start_game('HUMAN-COMPUTER', [(4,1), (5,2), (4,2), (4,4), (5,5)], [('A',1), ('A', 4), ('A', 2), ('A', 3)])
+```
