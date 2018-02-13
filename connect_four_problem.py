@@ -141,7 +141,11 @@ def check_rows(row, column, num, grid, value):
 
 def check_diagonals(row, column, num, grid, value):
     cells_list = []
-
+    
+    status = check_opposite_diagonals(check_opposite_diagonals)
+    if status:
+        return True
+    
     if row == column:
         if grid[1][1] != value or grid[2][2] != value or grid[3][3] != value:
             return False
@@ -149,8 +153,6 @@ def check_diagonals(row, column, num, grid, value):
             for i, j in [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]:
                 if grid[i][j] == value:
                     cells_list.append((i+1, j+1))
-                else:
-                    return False
 
                 if len(cells_list) == 4:
                     print_winner(cells_list, value)
@@ -179,6 +181,38 @@ def check_diagonals(row, column, num, grid, value):
 
     return False
 
+def check_opposite_diagonals(row, column, num, grid, value):
+    if (row, column) in [(3, 0), (2, 1), (1, 2), (0, 3)]:
+        for i, j in [(3, 0), (2, 1), (1, 2), (0, 3)]:
+            if grid[i][j] == value:
+                cells_list.append((i+1, j+1))
+            else:
+                return False
+
+            if len(cells_list) == 4:
+                print_winner(cells_list, value)
+                return True
+    elif (row, column) in [(4, 1), (3, 2), (2, 3), (1, 4)]:
+        for i, j in [(4, 1), (3, 2), (2, 3), (1, 4)]:
+            if grid[i][j] == value:
+                cells_list.append((i+1, j+1))
+            else:
+                return False
+
+            if len(cells_list) == 4:
+                print_winner(cells_list, value)
+                return True
+    elif (row, column) in [(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)]:
+        if grid[3][1] != value or grid[2][2] != value or grid[1][3] != value:
+            return False
+        else:
+            for i, j in [(4, 0), (3, 1), (2, 2), (1, 3), (0, 4)]:
+                if grid[i][j] == value:
+                    cells_list.append((i+1, j+1))
+
+                if len(cells_list) == 4:
+                    print_winner(cells_list, value)
+                    return True
 
 def print_winner(cells_list, value):
     print "Cells part of winning line - {}".format(cells_list)
